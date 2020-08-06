@@ -5,7 +5,7 @@ class human:
         self.age = age
 
     def display(self):
-        print('Name: ' + self.firstName + ' ' + self.lastName + '\nAge: ' + self.age)
+        print('\nName: ' + self.firstName + ' ' + self.lastName + '\nAge: ' + self.age)
 
 class student(human):
     def __init__(self, fName, lName, age, studentNumber, school):
@@ -14,34 +14,28 @@ class student(human):
         self.school = school
 
     def display(self):
-        print('Name: ' + self.firstName + ' ' + self.lastName + '\nAge: ' + self.age 
+        print('\nName: ' + self.firstName + ' ' + self.lastName + '\nAge: ' + self.age 
             + '\nStudent Number: ' + self.studentNumber + '\nSchool: ' + self.school)
 
 global person
 
-print('Please enter your full name.')
-fullName = input().split(' ')   # Splits the converted name into a list containing first and last name
+fullName = input('Please enter your full name.\n').split(' ')   # Splits the converted name into a list containing first and last name
                                 # e.g -> 'John Doe' => ['John', 'Doe']
-
 if len(fullName) <= 1:
     fullName.append('')
-
 # if type(fullName) is not str:
 # Don't have to test, names are strings be default
 
-print('Please enter your age.')
-age = input()
+age = input('Please enter your age.\n')
 
 while age.isdigit() == False:
-    print('Please enter a number as your age.')
-    age = input()
+    age = input('Please enter a number as your age.\n')
 
 global isStudent
 isStudent = False
 # Instantiates the 'isStudent' global variable, with a default value of false.
 
-print('Are you a student?')
-res = input()
+res = input('Are you a student?\n')
 
 if res == True or res.lower() == 'yes' or res.lower() == 'y':
     isStudent = True
@@ -49,14 +43,11 @@ if res == True or res.lower() == 'yes' or res.lower() == 'y':
 # so, we overide it. This means we use less code for the same outcome.
 
 if isStudent:
-    print('Please enter your student number.')
-    studNum = input()
+    studNum = input('Please enter your student number.\n')
     while studNum.isdigit() == False:
-        print('Your student number has to be a number. Please enter a number.')
-        studNum = input()
+        studNum = input('Your student number has to be a number. Please enter a number.\n')
     
-    print('Please enter the name of your school.')
-    school = input()
+    school = input('Please enter the name of your school.\n')
     
     person = student(fullName[0], fullName[1], age, studNum, school)
 else:
